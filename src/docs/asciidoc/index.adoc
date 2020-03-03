@@ -1,0 +1,8 @@
+= How-tos
+:toc: left
+:toclevels: 4
+:numbered:
+:source-highlighter: prettify
+:sectanchors:
+
+include::kubernetes/index.adoc[leveloffset=+1]

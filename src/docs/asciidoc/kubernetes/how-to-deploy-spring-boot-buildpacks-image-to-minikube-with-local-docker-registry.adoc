@@ -1,6 +1,6 @@
-# How To Deploy Spring Boot Buildpacks Image To minikube
+= How To Deploy Spring Boot Buildpacks Image To minikube With Local Docker Registry
 
-## Steps
+== Steps
 
 ```
 $ minikube start --insecure-registry "10.0.0.0/24"
@@ -24,19 +24,26 @@ $
 ```
 $ docker tag docker.io/library/test:0.0.1-SNAPSHOT localhost:5000/test
 $ docker push localhost:5000/test
+...
+$
 ```
 
 ```
-kubectl create deployment test --image=localhost:5000/test
-kubectl expose deployment/test --type="NodePort" --port 8080
+$ kubectl create deployment test --image=localhost:5000/test
+...
+$ kubectl expose deployment/test --type="NodePort" --port 8080
+...
+$
 ```
 
 ```
-export NODE_PORT=$(kubectl get services/test -o go-template='{{(index .spec.ports 0).nodePort}}')
-curl $(minikube ip):$NODE_PORT/actuator/health
+$ export NODE_PORT=$(kubectl get services/test -o go-template='{{(index .spec.ports 0).nodePort}}')
+$ curl $(minikube ip):$NODE_PORT/actuator/health
+...
+$
 ```
 
-## References:
+== References
 
 * https://minikube.sigs.k8s.io/docs/tasks/registry/insecure/
 * https://kubernetes.io/docs/tutorials/

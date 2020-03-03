@@ -1,0 +1,45 @@
+= How To Deploy Spring Boot Buildpacks Image To minikube With External Private Docker Registry
+
+== Steps
+
+```
+$ minikube start --vm-driver=virtualbox
+...
+$
+```
+
+NOTE: Default VM driver (`hyperkit`) doesn't seem to access an external private Docker registry by default.
+
+```
+$ ./gradlew clean bootBuildImage
+...
+$
+```
+
+```
+$ docker tag docker.io/library/test:0.0.1-SNAPSHOT registry.izeye.com/test:20200303
+$ docker login registry.izeye.com
+...
+$ docker push registry.izeye.com/test:20200303
+...
+$
+```
+
+```
+$ kubectl create secret docker-registry regcred --docker-server=registry.izeye.com --docker-username={your username} --docker-password={your password}
+...
+$ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+...
+$ kubectl create deployment test --image=registry.izeye.com/test:20200303
+...
+$ kubectl expose deployment/test --type="NodePort" --port 8080
+...
+$
+```
+
+```
+$ export NODE_PORT=$(kubectl get services/test -o go-template='{{(index .spec.ports 0).nodePort}}')
+$ curl $(minikube ip):$NODE_PORT/actuator/health
+...
+$
+```
