@@ -2,19 +2,14 @@
 
 == Steps
 
-```
-$ minikube start --vm-driver=virtualbox
-...
-$
-```
-
-NOTE: Default VM driver (`hyperkit`) doesn't seem to access an external private Docker registry by default.
-
+=== Build Docker image
 ```
 $ ./gradlew clean bootBuildImage
 ...
 $
 ```
+
+=== Push Docker image to Docker registry
 
 ```
 $ docker tag docker.io/library/test:0.0.1-SNAPSHOT registry.izeye.com/test:20200303
@@ -25,11 +20,31 @@ $ docker push registry.izeye.com/test:20200303
 $
 ```
 
+=== Start minikube
+
+```
+$ minikube start --vm-driver=virtualbox
+...
+$
+```
+
+NOTE: Default VM driver (`hyperkit`) doesn't seem to access an external private Docker registry by default.
+
+=== Create and configure Docker registry secret for Kubernetes
+
 ```
 $ kubectl create secret docker-registry regcred --docker-server=registry.izeye.com --docker-username={your username} --docker-password={your password}
 ...
 $ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
 ...
+$
+```
+
+=== Create deployment and service
+
+==== Using CLI
+
+```
 $ kubectl create deployment test --image=registry.izeye.com/test:20200303
 ...
 $ kubectl expose deployment/test --type="NodePort" --port 8080
@@ -37,9 +52,27 @@ $ kubectl expose deployment/test --type="NodePort" --port 8080
 $
 ```
 
+==== Using configuration file
+
+```
+$ kubectl apply configurations/test.yaml
+...
+$
+```
+
+=== Check if it works
+
 ```
 $ export NODE_PORT=$(kubectl get services/test -o go-template='{{(index .spec.ports 0).nodePort}}')
 $ curl $(minikube ip):$NODE_PORT/actuator/health
+...
+$
+```
+
+or
+
+```
+$ curl $(minikube service test --url)/actuator/health
 ...
 $
 ```
