@@ -55,7 +55,7 @@ $
 ==== Using configuration file
 
 ```
-$ kubectl apply configurations/test.yaml
+$ kubectl apply -f configurations/test.yaml
 ...
 $
 ```
