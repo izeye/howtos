@@ -7,3 +7,9 @@
 ```
 $ docker run -it ubuntu
 ```
+
+* Run CircleCI OpenJDK 14
+
+```
+$ docker run -it cimg/openjdk:14.0
+```
