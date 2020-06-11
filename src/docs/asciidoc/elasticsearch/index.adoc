@@ -1,0 +1,19 @@
+= Elasticsearch
+
+== Index a document
+
+```
+curl -X PUT -H "Content-Type: application/json" "http://localhost:9200/persons/_doc/1" --data '
+{
+  "id": 1,
+  "firstName": "Johnny",
+  "lastName": "Lim"
+}
+'
+```
+
+== Get a document
+
+```
+curl "http://localhost:9200/persons/_doc/1"
+```
