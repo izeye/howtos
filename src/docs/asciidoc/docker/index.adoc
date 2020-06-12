@@ -35,3 +35,9 @@ CONTAINER ID        IMAGE                                               COMMAND 
 $ docker exec -it 6862b6198f88 bash
 cnb@6862b6198f88:/$
 ```
+
+* Remove all images
+
+```
+$ docker image rm -f `docker images --format "{{.ID}}" | tr '\n' ' '`
+```
