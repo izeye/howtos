@@ -13,3 +13,9 @@ $ docker run -it ubuntu
 ```
 $ docker run -it cimg/openjdk:14.0
 ```
+
+* Run with an environment variable
+
+```
+docker run -e SPRING_PROFILES_ACTIVE=test -it docker.io/library/spring-boot-throwaway-branches:1.0
+```
