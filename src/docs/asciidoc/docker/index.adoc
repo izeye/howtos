@@ -41,3 +41,9 @@ cnb@6862b6198f88:/$
 ```
 $ docker image rm -f `docker images --format "{{.ID}}" | tr '\n' ' '`
 ```
+
+* Show all containers
+
+```
+$ docker container ls -a
+```
