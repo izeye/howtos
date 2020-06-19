@@ -53,3 +53,16 @@ $ docker container ls -a
 ```
 $ docker container rm `docker container ls -a --format "{{.ID}}" | tr '\n' ' '`
 ```
+
+* List all files in a container without a shell
+
+```
+$ docker ps
+CONTAINER ID        IMAGE                                               COMMAND                  CREATED              STATUS              PORTS                                                                                                                                                                       NAMES
+e2721984cf10        cimg/openjdk:14.0                                   "/bin/bash"              About a minute ago   Up About a minute                                                                                                                                                                               frosty_agnesi
+$ docker export e2721984cf10 | tar -tf -
+.dockerenv
+bin/
+bin/bash
+...
+```
