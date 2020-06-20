@@ -1,0 +1,7 @@
+# macOS
+
+* Copy to the pasteboard from command line
+
+```
+$ pwd | pbcopy
+```
