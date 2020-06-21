@@ -1,0 +1,12 @@
+= How To Explore Layers in Docker Image
+
+* Run `dive` as follows:
+
+```
+dive <your-image-tag>
+```
+
+* Switch view to "Current Layer Contents" with "Tab".
+* Turn off "Unmodified" with "^U".
+* Switch view back to "Layers" with "Tab".
+* Navigate layers as you wish.
