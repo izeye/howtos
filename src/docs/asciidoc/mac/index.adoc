@@ -5,3 +5,50 @@
 ```
 $ pwd | pbcopy
 ```
+
+* List files in a directory with a tree view
+
+```
+$ tree .
+.
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── settings.gradle
+├── spring-boot-throwaway-branches.iml
+└── src
+    ├── main
+    │   ├── generated
+    │   ├── java
+    │   │   └── com
+    │   │       └── izeye
+    │   │           └── throwaway
+    │   │               ├── Application.java
+    │   │               └── config
+    │   │                   └── SampleConfig.java
+    │   └── resources
+    │       └── application.properties
+    └── test
+        ├── generated_tests
+        └── java
+            ├── com
+            │   └── izeye
+            │       └── throwaway
+            │           └── ApplicationTests.java
+            └── learningtest
+                └── org
+                    └── springframework
+                        └── boot
+                            └── test
+                                └── autoconfigure
+                                    └── web
+                                        └── servlet
+
+25 directories, 12 files
+$
+```
