@@ -5,3 +5,9 @@
 ```
 docker run --rm --name kubectl -v /path/to/your/kube/config:/.kube/config bitnami/kubectl version
 ```
+
+* Create a context
+
+```
+kubectl config set-context nova --cluster=my-cluster --namespace=my-namespace --user=my-user
+```
