@@ -1,0 +1,7 @@
+= Commands
+
+* Run `kubectl` with Docker
+
+```
+docker run --rm --name kubectl -v /path/to/your/kube/config:/.kube/config bitnami/kubectl version
+```
