@@ -1,0 +1,66 @@
+= Commands
+
+* Run Ubuntu
+
+```
+$ docker run -it ubuntu
+```
+
+* Run CircleCI OpenJDK 14
+
+```
+$ docker run -it cimg/openjdk:14.0
+```
+
+* Run with an environment variable
+
+```
+$ docker run -e SPRING_PROFILES_ACTIVE=test -it docker.io/library/spring-boot-throwaway-branches:1.0
+```
+
+* Run with a published port (container port: 8080, host port: 18080)
+
+```
+$ docker run -p 18080:8080 -it docker.io/library/spring-boot-throwaway-branches:1.0
+```
+
+* Execute Bash from a running container
+
+```
+$ docker ps
+CONTAINER ID        IMAGE                                               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+6862b6198f88        spring-boot-throwaway-branches:1.0                  "/cnb/lifecycle/laun…"   2 minutes ago       Up 2 minutes        0.0.0.0:18080->8080/tcp   cranky_allen
+$ docker exec -it 6862b6198f88 bash
+cnb@6862b6198f88:/$
+```
+
+* Remove all images
+
+```
+$ docker image rm -f `docker images --format "{{.ID}}" | tr '\n' ' '`
+```
+
+* Show all containers
+
+```
+$ docker container ls -a
+```
+
+* Remove all containers
+
+```
+$ docker container rm `docker container ls -a --format "{{.ID}}" | tr '\n' ' '`
+```
+
+* List all files in a container without a shell
+
+```
+$ docker ps
+CONTAINER ID        IMAGE                                               COMMAND                  CREATED              STATUS              PORTS                                                                                                                                                                       NAMES
+e2721984cf10        cimg/openjdk:14.0                                   "/bin/bash"              About a minute ago   Up About a minute                                                                                                                                                                               frosty_agnesi
+$ docker export e2721984cf10 | tar -tf -
+.dockerenv
+bin/
+bin/bash
+...
+```
