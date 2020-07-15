@@ -17,3 +17,21 @@ $ kubectl config set-context nova --cluster=my-cluster --namespace=my-namespace 
 ```
 $ kubectl exec --stdin --tty my-pod -- bash
 ```
+
+* Create a deployment YAML
+
+```
+$ kubectl create deployment spring-boot-throwaway-branches --image=izeye/spring-boot-throwaway-branches --dry-run=client -oyaml > k8s/deployment.yaml
+```
+
+* Create a service YAML
+
+```
+$ kubectl create service clusterip spring-boot-throwaway-branches --tcp 8080:8080 --dry-run -oyaml > k8s/service.yaml
+```
+
+* Port-forward
+
+```
+kubectl port-forward service/spring-boot-throwaway-branches 8080:8080
+```
