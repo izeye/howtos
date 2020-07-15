@@ -17,3 +17,9 @@ curl -X PUT -H "Content-Type: application/json" "http://localhost:9200/persons/_
 ```
 curl "http://localhost:9200/persons/_doc/1"
 ```
+
+== Search documents
+
+```
+curl "http://localhost:9200/persons/_search?q=firstName:Johnny"
+```
