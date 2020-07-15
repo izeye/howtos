@@ -1,0 +1,7 @@
+# cURL
+
+* Add a new line to the end of the response
+
+```
+curl -w "\n" "http://localhost:8080/actuator"
+```
