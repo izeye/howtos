@@ -37,6 +37,10 @@ cnb@6862b6198f88:/$
 * Remove all images
 
 ```
+$ docker rmi -f $(docker images -a -q)
+```
+
+```
 $ docker image rm -f `docker images --format "{{.ID}}" | tr '\n' ' '`
 ```
 
@@ -47,6 +51,12 @@ $ docker container ls -a
 ```
 
 * Remove all containers
+
+```
+$ docker rm $(docker ps -a -q)
+```
+
+or
 
 ```
 $ docker container rm `docker container ls -a --format "{{.ID}}" | tr '\n' ' '`
