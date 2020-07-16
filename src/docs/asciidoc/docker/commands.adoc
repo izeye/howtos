@@ -80,3 +80,9 @@ bin/bash
 ```
 $ docker history izeye/spring-boot-throwaway-branches
 ```
+
+* Reclaim unused resources
+
+```
+$ docker system prune
+```
