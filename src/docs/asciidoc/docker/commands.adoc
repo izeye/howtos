@@ -64,3 +64,9 @@ bin/
 bin/bash
 ...
 ```
+
+* Show image layers
+
+```
+$ docker history izeye/spring-boot-throwaway-branches
+```
