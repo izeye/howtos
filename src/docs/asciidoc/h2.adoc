@@ -1,0 +1,7 @@
+# H2
+
+* Show columns
+
+```sql
+SHOW COLUMNS FROM WORD;
+```
