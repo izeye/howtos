@@ -23,3 +23,9 @@ curl "http://localhost:9200/persons/_doc/1"
 ```
 curl "http://localhost:9200/persons/_search?q=firstName:Johnny"
 ```
+
+== Search documents with wildcards
+
+```
+curl "http://localhost:9200/persons/_search?q=firstName:*John*"
+```
