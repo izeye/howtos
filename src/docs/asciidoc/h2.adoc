@@ -5,3 +5,21 @@
 ```sql
 SHOW COLUMNS FROM WORD;
 ```
+
+* Add a unique constraint
+
+```sql
+ALTER TABLE WORD ADD CONSTRAINT WORD_VALUE_UNIQUE UNIQUE(VALUE);
+```
+
+* Drop a constraint
+
+```sql
+ALTER TABLE WORD DROP CONSTRAINT VALUE_UNIQUE;
+```
+
+* Show table constraints
+
+```sql
+SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS;
+```
