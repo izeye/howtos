@@ -1,0 +1,14 @@
+= `kubectl`
+
+* Get a shell to a running container
+
+```
+kubectl exec --stdin --tty my-pod-name -- /bin/bash
+```
+
+* Running a command in a container
+
+```
+kubectl exec my-pod-name ls
+kubectl exec my-pod-name -- ls -al
+```
