@@ -12,3 +12,21 @@ kubectl exec --stdin --tty my-pod-name -- /bin/bash
 kubectl exec my-pod-name ls
 kubectl exec my-pod-name -- ls -al
 ```
+
+* Forward a local port to a port on the Pod
+
+```
+kubectl port-forward redis-master-765d459796-258hz 7000:6379
+```
+
+or
+
+```
+kubectl port-forward deployment/redis-master 7000:6379
+```
+
+or
+
+```
+kubectl port-forward service/redis-master 7000:6379
+```
