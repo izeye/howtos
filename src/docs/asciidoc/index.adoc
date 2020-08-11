@@ -11,5 +11,7 @@ include::java/how-to-migrate-spring-boot-junit-4-to-junit-jupiter.adoc[leveloffs
 include::kubernetes/index.adoc[leveloffset=+1]
 include::mac/index.adoc[leveloffset=+1]
 include::curl.adoc[leveloffset=+1]
+include::h2.adoc[leveloffset=+1]
 include::grafana.adoc[leveloffset=+1]
 include::prometheus.adoc[leveloffset=+1]
+include::redis.adoc[leveloffset=+1]
