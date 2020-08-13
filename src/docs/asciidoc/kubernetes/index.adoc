@@ -1,5 +1,5 @@
 = Kubernetes
 
-include::kubectl.adoc[leveloffset=+1]
+include::commands.adoc[leveloffset=+1]
 include::how-to-deploy-spring-boot-buildpacks-image-to-minikube-with-local-docker-registry.adoc[leveloffset=+1]
 include::how-to-deploy-spring-boot-buildpacks-image-to-minikube-with-external-docker-registry.adoc[leveloffset=+1]

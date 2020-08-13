@@ -30,8 +30,27 @@ $ kubectl create deployment spring-boot-throwaway-branches --image=izeye/spring-
 $ kubectl create service clusterip spring-boot-throwaway-branches --tcp 8080:8080 --dry-run -oyaml > k8s/service.yaml
 ```
 
-* Port-forward
+* Running a command in a container
 
 ```
-kubectl port-forward service/spring-boot-throwaway-branches 8080:8080
+kubectl exec my-pod-name ls
+kubectl exec my-pod-name -- ls -al
+```
+
+* Forward a local port to a port on the Pod
+
+```
+kubectl port-forward redis-master-765d459796-258hz 7000:6379
+```
+
+or
+
+```
+kubectl port-forward deployment/redis-master 7000:6379
+```
+
+or
+
+```
+kubectl port-forward service/redis-master 7000:6379
 ```
