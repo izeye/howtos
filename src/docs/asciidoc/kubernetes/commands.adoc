@@ -55,8 +55,14 @@ or
 kubectl port-forward service/redis-master 7000:6379
 ```
 
-* Get secret for Docker Registry
+* Get secret data for Docker Registry
 
 ```
 $ kubectl get secrets my-image-pull-secret -o=jsonpath="{.data.\.dockerconfigjson}" | base64 -D
+```
+
+* Create a secret for Docker Registry
+
+```
+$ kubectl create secret docker-registry regcred --docker-server=registry.test.com --docker-username=myusername --docker-password=secret --namespace=mynamespace
 ```
