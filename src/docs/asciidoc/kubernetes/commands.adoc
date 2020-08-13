@@ -54,3 +54,9 @@ or
 ```
 kubectl port-forward service/redis-master 7000:6379
 ```
+
+* Get secret for Docker Registry
+
+```
+$ kubectl get secrets my-image-pull-secret -o=jsonpath="{.data.\.dockerconfigjson}" | base64 -D
+```
