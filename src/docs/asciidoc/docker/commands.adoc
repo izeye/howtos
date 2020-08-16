@@ -86,3 +86,9 @@ $ docker history izeye/spring-boot-throwaway-branches
 ```
 $ docker system prune
 ```
+
+* Run with changed entrypoint
+
+```
+docker run -it --entrypoint /bin/sh gcr.io/cloud-builders/gcloud
+```
