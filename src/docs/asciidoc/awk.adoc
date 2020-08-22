@@ -1,0 +1,7 @@
+# AWK
+
+* Print a specific range of lines from a file
+
+```
+$ awk 'NR >= 13884 && NR <= 13884 + 200' asset-pairs.txt
+```
