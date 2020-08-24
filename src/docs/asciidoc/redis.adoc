@@ -5,3 +5,9 @@
 ```
 $ docker run --name my-redis -p 6379:6379 --rm redis
 ```
+
+* Connect with redis-cli
+
+```
+$ redis-cli -h my-host -p 6379 -a my-password -c
+```
