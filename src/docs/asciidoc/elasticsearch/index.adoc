@@ -1,9 +1,15 @@
 = Elasticsearch
 
-== Index a document
+* Run with Docker
 
 ```
-curl -X PUT -H "Content-Type: application/json" "http://localhost:9200/persons/_doc/1" --data '
+$ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.9.0
+```
+
+* Index a document
+
+```
+$ curl -X PUT -H "Content-Type: application/json" "http://localhost:9200/persons/_doc/1" --data '
 {
   "id": 1,
   "firstName": "Johnny",
@@ -12,20 +18,20 @@ curl -X PUT -H "Content-Type: application/json" "http://localhost:9200/persons/_
 '
 ```
 
-== Get a document
+* Get a document
 
 ```
-curl "http://localhost:9200/persons/_doc/1"
+$ curl "http://localhost:9200/persons/_doc/1"
 ```
 
-== Search documents
+* Search documents
 
 ```
-curl "http://localhost:9200/persons/_search?q=firstName:Johnny"
+$ curl "http://localhost:9200/persons/_search?q=firstName:Johnny"
 ```
 
-== Search documents with wildcards
+* Search documents with wildcards
 
 ```
-curl "http://localhost:9200/persons/_search?q=firstName:*John*"
+$ curl "http://localhost:9200/persons/_search?q=firstName:*John*"
 ```
