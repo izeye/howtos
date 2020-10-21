@@ -52,3 +52,9 @@ $ tree .
 25 directories, 12 files
 $
 ```
+
+* Get which process occupies a specific port
+
+```
+$ lsof -i TCP:3000
+```
