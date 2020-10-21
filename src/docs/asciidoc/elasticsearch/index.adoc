@@ -1,5 +1,11 @@
 = Elasticsearch
 
+* List indexes
+
+```
+curl "http://localhost:9200/_cat/indices"
+```
+
 * Run with Docker
 
 ```
