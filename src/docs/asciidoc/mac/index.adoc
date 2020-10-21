@@ -58,3 +58,9 @@ $
 ```
 $ lsof -i TCP:3000
 ```
+
+* Get a full command of a specific process
+
+```
+$ ps -x | grep 461
+```
