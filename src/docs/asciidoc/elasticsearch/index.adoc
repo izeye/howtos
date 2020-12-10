@@ -41,3 +41,9 @@ $ curl "http://localhost:9200/persons/_search?q=firstName:Johnny"
 ```
 $ curl "http://localhost:9200/persons/_search?q=firstName:*John*"
 ```
+
+* Count documents
+
+```
+$ curl "http://localhost:9200/persons/_count?q=firstName:Johnny"
+```
