@@ -6,6 +6,12 @@
 $ docker run --rm --name kubectl -v /path/to/your/kube/config:/.kube/config bitnami/kubectl version
 ```
 
+* Run a specific version of `kubectl` with Docker
+
+```
+$ docker run --rm --name kubectl -v /path/to/your/kube/config:/.kube/config bitnami/kubectl:1.14 version
+```
+
 * Create a context
 
 ```
