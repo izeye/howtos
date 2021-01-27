@@ -2,3 +2,33 @@
 
 include::commands.adoc[leveloffset=+1]
 include::how-to-explore-layers-in-docker-image.adoc[leveloffset=+1]
+
+== Misc.
+
+=== Proxy Unix socket over TCP
+
+* Run a proxy as follows::
+
+```
+➜  ~ socat TCP-L:1234,fork UNIX:/var/run/docker.sock
+```
+
+* Test the proxy as follows:
+
+```
+➜  ~ export DOCKER_HOST=localhost:1234
+➜  ~ http $DOCKER_HOST/containers/json
+HTTP/1.1 200 OK
+Api-Version: 1.41
+Content-Type: application/json
+Date: Wed, 27 Jan 2021 15:15:40 GMT
+Docker-Experimental: false
+Ostype: linux
+Server: Docker/20.10.2 (linux)
+Transfer-Encoding: chunked
+
+[]
+
+
+➜  ~
+```
