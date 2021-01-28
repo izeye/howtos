@@ -45,3 +45,9 @@ Run Prometheus as follows:
 ```
 docker run -p 9090:9090 -v /Users/izeye/workspaces/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
+
+== Run Pushgateway with Docker
+
+```
+docker run -p 9091:9091 prom/pushgateway
+```
