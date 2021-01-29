@@ -1,0 +1,7 @@
+= MySQL
+
+== CLI with default character set
+
+```
+mysql -h db.izeye.com -uizeye -psecret my_db --default-character-set=utf8
+```
