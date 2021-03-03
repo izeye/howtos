@@ -1,0 +1,7 @@
+= Java
+
+== VM Options
+
+* `-verbose:class`: Print loaded classes
+
+include::how-to-migrate-spring-boot-junit-4-to-junit-jupiter.adoc[leveloffset=+1]
