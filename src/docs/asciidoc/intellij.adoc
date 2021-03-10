@@ -1,0 +1,24 @@
+= IntelliJ
+
+== How to fix IntelliJ when it has been stuck
+
+* Disable reopening last projects as follows:
+
+```
+vi ~/Library/Application\ Support/JetBrains/IntelliJIdea2020.3/options/ide.general.xml
+```
+
+```
+<application>
+  <component name="GeneralSettings">
+    <option name="confirmOpenNewProject2" value="0" />
+    <option name="reopenLastProject" value="false" />
+  </component>
+</application>
+```
+
+* Invalidate caches as follows:
+
+```
+"File" -> "Invalidate Caches / Restart..."
+```
