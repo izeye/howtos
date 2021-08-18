@@ -72,3 +72,9 @@ $ kubectl get secrets my-image-pull-secret -o=jsonpath="{.data.\.dockerconfigjso
 ```
 $ kubectl create secret docker-registry regcred --docker-server=registry.test.com --docker-username=myusername --docker-password=secret --namespace=mynamespace
 ```
+
+* Run a temporary pod to execute commands
+
+```
+$ kubectl run -i -t busybox --image=busybox --restart=Never --rm
+```
