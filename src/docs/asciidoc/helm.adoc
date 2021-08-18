@@ -1,0 +1,15 @@
+# Helm
+
+* Install Tiller with a specific image
+
+You might encounter the following error due to a missing image:
+
+```
+  Warning  Failed     19s (x2 over 33s)  kubelet, minikube  Failed to pull image "gcr.io/kubernetes-helm/tiller:v2.16.1": rpc error: code = Unknown desc = Error response from daemon: manifest for gcr.io/kubernetes-helm/tiller:v2.16.1 not found: manifest unknown: Failed to fetch "v2.16.1" from request "/v2/kubernetes-helm/tiller/manifests/v2.16.1".
+```
+
+You can specify a specific image for Tiller as follows:
+
+```
+$ helm init -i gcr.io/kubernetes-helm/tiller:v2.17.0
+```
