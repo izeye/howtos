@@ -78,3 +78,9 @@ $ kubectl create secret docker-registry regcred --docker-server=registry.test.co
 ```
 $ kubectl run -i -t busybox --image=busybox --restart=Never --rm
 ```
+
+* Run a temporary pod to execute cURL
+
+```
+$ kubectl run curl --image=radial/busyboxplus:curl -i --tty
+```
