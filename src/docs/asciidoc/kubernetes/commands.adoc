@@ -84,3 +84,9 @@ $ kubectl run -i -t busybox --image=busybox --restart=Never --rm
 ```
 $ kubectl run curl --image=radial/busyboxplus:curl -i --tty
 ```
+
+* Serve Kubernetes dashboard via port-forward
+
+```
+kubectl port-forward service/kubernetes-dashboard 10000:80 -n kubernetes-dashboard
+```
