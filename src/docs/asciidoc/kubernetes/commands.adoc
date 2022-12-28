@@ -90,3 +90,9 @@ $ kubectl run curl --image=radial/busyboxplus:curl -i --tty
 ```
 kubectl port-forward service/kubernetes-dashboard 10000:80 -n kubernetes-dashboard
 ```
+
+* Get ingress' accessible addresses with minikube on macOS
+
+```
+minikube service ingress-nginx-controller --url -n ingress-nginx
+```
